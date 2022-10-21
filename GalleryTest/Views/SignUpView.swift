@@ -1,5 +1,5 @@
 //
-//  AuthenticationView.swift
+//  SignUpView.swift
 //  GalleryTest
 //
 //  Created by Роман Карасёв on 21.10.2022.
@@ -8,9 +8,9 @@
 import UIKit
 
 
-//MARK: - AuthenticationView
+//MARK: - SignUpView
 
-class AuthenticationView: UIView {
+class SignUpView: UIView {
     
     //MARK: Properties
     
@@ -85,6 +85,19 @@ class AuthenticationView: UIView {
                              alignment: .center,
                              textColor: .notMainTextColor)
     
+    let dateLabel: UILabel = {
+        let label = UILabel(text: "07.01.1991",
+                            font: .systemFont(ofSize: 17),
+                            alignment: .left,
+                            textColor: .notMainTextColor)
+        label.textColor = #colorLiteral(red: 0.6824527383, green: 0.6743988991, blue: 0.7477797866, alpha: 1)
+        return label
+    }()
+    
+    let ageLabel = UILabel(text: Resources.String.emptyLabelText,
+                           font: .appleSDGothicNeo15(),
+                           alignment: .left,
+                           textColor: .label)
     
     //MARK: TextField
     
@@ -104,9 +117,6 @@ class AuthenticationView: UIView {
         let button = UIButton()
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.mainBorderColor.cgColor
-        button.setTitle(Resources.String.titleForDateButton, for: .normal)
-        button.setTitleColor(.colorForTitleDateButton, for: .normal)
-        button.contentHorizontalAlignment = .leading
         button.backgroundColor = .mainBackgroundColorForElement
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -167,7 +177,7 @@ class AuthenticationView: UIView {
 
 //MARK: - setConstraints
 
-extension AuthenticationView {
+extension SignUpView {
     
     private func setConstraints() {
         
@@ -205,35 +215,16 @@ extension AuthenticationView {
             ]
         )
         
-        addSubview(imageButton)
-        NSLayoutConstraint.activate(
-            [imageButton.topAnchor.constraint(equalTo: hiLabel.bottomAnchor,
-                                              constant: 10),
-             imageButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-             imageButton.heightAnchor.constraint(equalToConstant: 100),
-             imageButton.widthAnchor.constraint(equalToConstant: 100)
-            ]
-        )
-        
-        imageButton.addSubview(profileImageView)
-        NSLayoutConstraint.activate(
-            [profileImageView.topAnchor.constraint(equalTo: imageButton.topAnchor),
-             profileImageView.leadingAnchor.constraint(equalTo: imageButton.leadingAnchor),
-             profileImageView.trailingAnchor.constraint(equalTo: imageButton.trailingAnchor),
-             profileImageView.bottomAnchor.constraint(equalTo: imageButton.bottomAnchor)
-            ]
-        )
-        
         addSubview(loginBackgroundScrollView)
         NSLayoutConstraint.activate(
-            [loginBackgroundScrollView.topAnchor.constraint(equalTo: topAnchor,
-                                                            constant: 300),
+            [loginBackgroundScrollView.topAnchor.constraint(equalTo: hiLabel.bottomAnchor,
+                                                            constant: 10),
              loginBackgroundScrollView.leadingAnchor.constraint(equalTo: leadingAnchor,
                                                                 constant: 37),
              loginBackgroundScrollView.trailingAnchor.constraint(equalTo: trailingAnchor,
                                                                  constant: -37),
              loginBackgroundScrollView.bottomAnchor.constraint(equalTo: bottomAnchor,
-                                                               constant: -200)
+                                                               constant: -300)
             ]
         )
         
@@ -246,14 +237,40 @@ extension AuthenticationView {
             ]
         )
         
+        loginBackgroundView.addSubview(imageButton)
+        NSLayoutConstraint.activate(
+            [imageButton.topAnchor.constraint(equalTo: loginBackgroundView.topAnchor,
+                                              constant: 10),
+             imageButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+             imageButton.heightAnchor.constraint(equalToConstant: 100),
+             imageButton.widthAnchor.constraint(equalToConstant: 100)
+            ]
+        )
+
+        imageButton.addSubview(profileImageView)
+        NSLayoutConstraint.activate(
+            [profileImageView.topAnchor.constraint(equalTo: imageButton.topAnchor),
+             profileImageView.leadingAnchor.constraint(equalTo: imageButton.leadingAnchor),
+             profileImageView.trailingAnchor.constraint(equalTo: imageButton.trailingAnchor),
+             profileImageView.bottomAnchor.constraint(equalTo: imageButton.bottomAnchor)
+            ]
+        )
+
         loginBackgroundView.addSubview(mainStackView)
         NSLayoutConstraint.activate(
-            [mainStackView.centerXAnchor.constraint(equalTo: loginBackgroundView.centerXAnchor),
-             mainStackView.centerYAnchor.constraint(equalTo: loginBackgroundView.centerYAnchor),
+            [mainStackView.topAnchor.constraint(equalTo: imageButton.bottomAnchor, constant: 10),
+             mainStackView.leadingAnchor.constraint(equalTo: loginBackgroundView.leadingAnchor),
              mainStackView.trailingAnchor.constraint(equalTo: loginBackgroundView.trailingAnchor),
              mainStackView.bottomAnchor.constraint(equalTo: loginBackgroundView.bottomAnchor)
             ]
         )
+
+        dateButton.addSubview(dateLabel)
+        NSLayoutConstraint.activate([dateLabel.topAnchor.constraint(equalTo: dateButton.topAnchor),
+                                     dateLabel.leadingAnchor.constraint(equalTo: dateButton.leadingAnchor, constant: 7),
+                                     dateLabel.trailingAnchor.constraint(equalTo: dateButton.trailingAnchor, constant: -7),
+                                     dateLabel.bottomAnchor.constraint(equalTo: dateButton.bottomAnchor)
+                                    ])
         
         addSubview(signUPButton)
         NSLayoutConstraint.activate(
@@ -266,7 +283,7 @@ extension AuthenticationView {
              signUPButton.heightAnchor.constraint(equalToConstant: 60)
             ]
         )
-        
+
         addSubview(iHaveLabel)
         NSLayoutConstraint.activate(
             [iHaveLabel.centerXAnchor.constraint(equalTo: signUPButton.centerXAnchor,
@@ -275,6 +292,7 @@ extension AuthenticationView {
                                              constant: 10)
             ]
         )
+
         addSubview(signINButton)
         NSLayoutConstraint.activate(
             [signINButton.leadingAnchor.constraint(equalTo: iHaveLabel.trailingAnchor),

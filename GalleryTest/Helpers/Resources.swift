@@ -37,7 +37,7 @@ enum Resources {
         static var emailPlaceholder = "Enter Email"
         static var namePlaceholder = "Enter Name"
         static var secondNamePlaceholder = "Enter SecondName"
-        static var numberPlaceholder = "+7 (777)-777-77-77"
+        static var numberPlaceholder = "Start entering with 7"
         static var passwordPlaceholder = "Enter Password"
         
         static var titleForSignUPButton = "Sign up my Account"
@@ -55,5 +55,12 @@ enum Resources {
         static var hiAddPhotoLabel = "Add new photo to you Profile"
         static var hiProfileLabel = ""
         static var hiDetailLabel = "Photo Info"
+        
+        enum wrongMessages {
+            static var name = "Only a-z or A-z, minimun 1 character"
+            static var email = "Email don't valid"
+            static var password = "Password is not valid"
+            static var number = "Enter 11 number's"
+        }
     }
 }
