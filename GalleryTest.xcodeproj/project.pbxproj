@@ -23,6 +23,12 @@
 		7448FAF429022FFC006564A5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FAF329022FFC006564A5 /* MainTabBarController.swift */; };
 		7448FAF629023176006564A5 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FAF529023176006564A5 /* AddPhotoViewController.swift */; };
 		7448FAF829023220006564A5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FAF729023220006564A5 /* ProfileViewController.swift */; };
+		7448FAFA290272DB006564A5 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FAF9290272DB006564A5 /* AddPhotoView.swift */; };
+		7448FAFC29027737006564A5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FAFB29027737006564A5 /* ProfileView.swift */; };
+		7448FAFF29028312006564A5 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FAFE29028312006564A5 /* ProfileCollectionViewCell.swift */; };
+		7448FB0129028791006564A5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FB0029028791006564A5 /* DetailViewController.swift */; };
+		7448FB03290287F7006564A5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FB02290287F7006564A5 /* DetailView.swift */; };
+		7448FB0529028C95006564A5 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FB0429028C95006564A5 /* Resources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +50,12 @@
 		7448FAF329022FFC006564A5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7448FAF529023176006564A5 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		7448FAF729023220006564A5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7448FAF9290272DB006564A5 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		7448FAFB29027737006564A5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		7448FAFE29028312006564A5 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		7448FB0029028791006564A5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7448FB02290287F7006564A5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		7448FB0429028C95006564A5 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +124,7 @@
 				7448FAF329022FFC006564A5 /* MainTabBarController.swift */,
 				7448FAF529023176006564A5 /* AddPhotoViewController.swift */,
 				7448FAF729023220006564A5 /* ProfileViewController.swift */,
+				7448FB0029028791006564A5 /* DetailViewController.swift */,
 			);
 			path = Controlllers;
 			sourceTree = "<group>";
@@ -119,8 +132,12 @@
 		7448FAE02901F3B6006564A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7448FAFD290282EB006564A5 /* Cell */,
 				7448FAE12901F7DF006564A5 /* AuthenticationView.swift */,
 				7448FAF129022106006564A5 /* SignInView.swift */,
+				7448FAF9290272DB006564A5 /* AddPhotoView.swift */,
+				7448FAFB29027737006564A5 /* ProfileView.swift */,
+				7448FB02290287F7006564A5 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				7448FAE42901F868006564A5 /* Extentions */,
+				7448FB0429028C95006564A5 /* Resources.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -143,6 +161,14 @@
 				7448FAED2902134B006564A5 /* UITextField + Ext.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		7448FAFD290282EB006564A5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7448FAFE29028312006564A5 /* ProfileCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,16 +243,22 @@
 			files = (
 				7448FAF629023176006564A5 /* AddPhotoViewController.swift in Sources */,
 				7448FACE2901F324006564A5 /* AuthenticationViewController.swift in Sources */,
+				7448FAFF29028312006564A5 /* ProfileCollectionViewCell.swift in Sources */,
 				7448FAEE2902134B006564A5 /* UITextField + Ext.swift in Sources */,
 				7448FAF429022FFC006564A5 /* MainTabBarController.swift in Sources */,
 				7448FAF829023220006564A5 /* ProfileViewController.swift in Sources */,
 				7448FACA2901F324006564A5 /* AppDelegate.swift in Sources */,
 				7448FAEA29020198006564A5 /* UIColor + Ext.swift in Sources */,
+				7448FAFA290272DB006564A5 /* AddPhotoView.swift in Sources */,
+				7448FB0129028791006564A5 /* DetailViewController.swift in Sources */,
+				7448FAFC29027737006564A5 /* ProfileView.swift in Sources */,
 				7448FAE22901F7DF006564A5 /* AuthenticationView.swift in Sources */,
 				7448FAE62901F87D006564A5 /* UILabel + Ext.swift in Sources */,
+				7448FB0529028C95006564A5 /* Resources.swift in Sources */,
 				7448FAEC29020A16006564A5 /* UIStackView + Ext.swift in Sources */,
 				7448FAE82901F92B006564A5 /* UIFont + Ext.swift in Sources */,
 				7448FAF0290220F6006564A5 /* SignInViewController.swift in Sources */,
+				7448FB03290287F7006564A5 /* DetailView.swift in Sources */,
 				7448FAF229022106006564A5 /* SignInView.swift in Sources */,
 				7448FACC2901F324006564A5 /* SceneDelegate.swift in Sources */,
 			);

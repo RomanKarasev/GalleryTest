@@ -15,8 +15,8 @@ extension UITextField {
         self.placeholder = placeholder
         self.tintColor = .label
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(hexString: "#2C2948").cgColor
-        self.backgroundColor = UIColor(hexString: "#E3E0F9")
+        self.layer.borderColor = UIColor.mainBorderColor.cgColor
+        self.backgroundColor = .mainBackgroundColorForElement
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }

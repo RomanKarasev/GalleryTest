@@ -21,33 +21,21 @@ extension UIFont {
     static func appleSDGothicNeoSemiBold20() -> UIFont? {
         return UIFont.init(name: "Apple SD Gothic Neo SemiBold", size: 20)
     }
-//
+
     static func appleSDGothicNeo25() -> UIFont? {
         return UIFont.init(name: "Apple SD Gothic Neo", size: 25)
     }
-//
-    static func appleSDGothicNeoDemiBold35() -> UIFont? {
+    
+    static func appleSDGothicNeoSemiBold35() -> UIFont? {
         return UIFont.init(name: "Apple SD Gothic Neo SemiBold", size: 35)
     }
-//
+    
     static func appleSDGothicNeo20() -> UIFont? {
         return UIFont.init(name: "Apple SD Gothic Neo", size: 20)
     }
-//
-//    static func appleSDGothicNeoDemiBold20() -> UIFont? {
-//        return UIFont.init(name: "Apple SD Gothic Neo SemiBold", size: 20)
-//    }
-//
-//    static func appleSDGothicNeoDemiBold30() -> UIFont? {
-//        return UIFont.init(name: "Apple SD Gothic Neo SemiBold", size: 30)
-//    }
-//
-//    static func appleSDGothicNeoDemiBold40() -> UIFont? {
-//        return UIFont.init(name: "Apple SD Gothic Neo SemiBold", size: 40)
-//    }
-//
-//    static func appleSDGothicNeoDemiBold50() -> UIFont? {
-//        return UIFont.init(name: "Apple SD Gothic Neo SemiBold", size: 50)
-//    }
+    
+    static func appleSDGothicNeoSemiBold25() -> UIFont? {
+        return UIFont.init(name: "Apple SD Gothic Neo SemiBold", size: 25)
+    }
 }
 

@@ -7,10 +7,14 @@
 
 import UIKit
 
+//MARK: - SignInViewController
 class SignInViewController: UIViewController {
-
+    
+    // MARK: Properties
     
     let signInView = SignInView()
+    
+    // MARK: View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,7 @@ class SignInViewController: UIViewController {
 //MARK: PrivateMethods
 
 private extension SignInViewController {
+    
     func setDelegates() {
         signInView.emailTextField.delegate = self
         signInView.passwordTextField.delegate = self
@@ -39,9 +44,10 @@ private extension SignInViewController {
         signInView.signUPButton.addTarget(self,
                                           action: #selector(signUPButtonTapped),
                                           for: .touchUpInside)
-        
     }
 }
+
+// MARK: - @objc extentions
 
 @objc extension SignInViewController {
     
@@ -56,6 +62,7 @@ private extension SignInViewController {
     }
 }
 
+//MARK: - UITextFieldDelegate
 extension SignInViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false

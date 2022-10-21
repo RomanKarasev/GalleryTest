@@ -18,8 +18,12 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         setupTabBar()
     }
+}
+// MARK: - Private Methods
+
+extension MainTabBarController {
     
-    // MARK: Methods
+    //MARK: setupTabBar
     
     private func setupTabBar() {
         let addPhotoViewController = addPhotoVC()
@@ -30,7 +34,7 @@ class MainTabBarController: UITabBarController {
             profileViewController
         ]
         
-        tabBar.tintColor = UIColor(hexString: "#7165E3")
+        tabBar.tintColor = .mainAccentColor
         tabBar.unselectedItemTintColor = .gray
         tabBar.backgroundColor = .systemBackground
         
@@ -38,11 +42,8 @@ class MainTabBarController: UITabBarController {
         tabBar.layer.shadowOffset = CGSize(width: 0,
                                            height: -1)
         tabBar.layer.shadowRadius = 10
+        self.selectedIndex = 1
     }
-}
-// MARK: - Private Methods
-
-extension MainTabBarController {
     
     // MARK: createNavController
     
@@ -59,16 +60,16 @@ extension MainTabBarController {
     // MARK: addPhotoViewController
     
     private func addPhotoVC() -> UINavigationController {
-        let VC = createNavController(vc: AddPhotoViewController(), itemName: "Add")
-        VC.tabBarItem.image = UIImage(systemName: "plus")
+        let VC = createNavController(vc: AddPhotoViewController(), itemName: Resources.String.addTabBarItem)
+        VC.tabBarItem.image = Resources.addTabBarImage
         return VC
     }
     
     // MARK: createProfileVC
     
     private func createProfileVC() -> UINavigationController {
-        let VC = createNavController(vc: ProfileViewController(), itemName: "Profile")
-        VC.tabBarItem.image = UIImage(systemName: "person.fill")
+        let VC = createNavController(vc: ProfileViewController(), itemName: Resources.String.profileTabBarItem)
+        VC.tabBarItem.image = Resources.profileTabBarImage
         return VC
     }
 }

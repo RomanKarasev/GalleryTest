@@ -7,10 +7,14 @@
 
 import UIKit
 
+//MARK: - AuthenticationViewController
 class AuthenticationViewController: UIViewController {
-
+    
+    // MARK: Properties
     
     let authenticationView = AuthenticationView()
+    
+    // MARK: View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,7 @@ class AuthenticationViewController: UIViewController {
 //MARK: PrivateMethods
 
 private extension AuthenticationViewController {
+    
     func setDelegates() {
         authenticationView.nameTextField.delegate = self
         authenticationView.secondNameTextField.delegate = self
@@ -54,6 +59,8 @@ private extension AuthenticationViewController {
     }
 }
 
+// MARK: - @objc extentions
+
 @objc extension AuthenticationViewController {
     
     func imageButtonTapped() {
@@ -74,6 +81,8 @@ private extension AuthenticationViewController {
         self.present(signInViewController, animated: true)
     }
 }
+
+//MARK: - UITextFieldDelegate
 
 extension AuthenticationViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

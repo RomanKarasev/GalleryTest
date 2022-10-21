@@ -8,30 +8,51 @@
 
 import UIKit
 
+//MARK: - AddPhotoViewController
+
 class AddPhotoViewController: UIViewController {
 
+    // MARK: Properties
     
-//    let signInView = SignInView()
+    let addPhotoView = AddPhotoView()
+    
+    // MARK: View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        title = Resources.String.addPhotoVCTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
+        setDelegates()
+        addActionsForButtons()
     }
     
     override func loadView() {
         super.loadView()
-//        view = signInView
+        view = addPhotoView
     }
 }
 
-//MARK: PrivateMethods
+//MARK: - PrivateMethods
 
 private extension AddPhotoViewController {
     
+    func setDelegates() {
+    }
+    
+    func addActionsForButtons() {
+        addPhotoView.addPhotoButton.addTarget(self,
+                                              action: #selector(addPhotoButtonTapped),
+                                              for: .touchUpInside)
+    }
 }
+
+// MARK: - @objc extentions
 
 @objc extension AddPhotoViewController {
     
+    func addPhotoButtonTapped() {
+        print("addPhotoButtonTapped")
+    }
 }
 
 
