@@ -13,8 +13,9 @@ import UIKit
 class AddPhotoViewController: UIViewController {
 
     // MARK: Properties
-    
+    var activeUser = UserData.shared.selectedUser
     let addPhotoView = AddPhotoView()
+    var profilePhoho = [Data]()
     
     // MARK: View life cycle
     
@@ -51,7 +52,37 @@ private extension AddPhotoViewController {
 @objc extension AddPhotoViewController {
     
     func addPhotoButtonTapped() {
-        print("addPhotoButtonTapped")
+        chooseImage()
+    }
+}
+
+extension AddPhotoViewController {
+    
+}
+
+//MARK: - Work with image
+
+extension AddPhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
+    func chooseImage() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = .photoLibrary
+            present(imagePicker, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        addPhotoView.imageView.image = info[.editedImage] as? UIImage
+        
+        guard let imageToData = addPhotoView.imageView.image?.pngData() else { return }
+        guard let activeUser = UserData.shared.selectedUser else { return }
+        
+        UserData.shared.savePhotoToUser(user: activeUser, profilePhoto: imageToData)
+        print(activeUser)
+        dismiss(animated: true)
     }
 }
 

@@ -19,11 +19,20 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setModel()
     }
     
     override func loadView() {
         super.loadView()
         view = detailView
+    }
+    
+    func setModel() {
+        guard let activeUser = UserData.shared.selectedUser else { return }
+        
+        detailView.profileImageView.image = UIImage(data: activeUser.profileImage)
+        detailView.nameLabel.text = activeUser.name
+        detailView.secondNameLabel.text = activeUser.secondName
     }
 }
 

@@ -21,11 +21,20 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setDelegates()
         title = Resources.String.profileVCTitle
+        setModel()
+        profileView.profileCollectionView.reloadData()
+        
+        
     }
     
     override func loadView() {
         super.loadView()
         view = profileView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        profileView.profileCollectionView.reloadData()
     }
 }
 
@@ -41,6 +50,20 @@ private extension ProfileViewController {
     func didSelectProfilePhoto() {
         let vc = DetailViewController()
         self.present(vc, animated: true)
+    }
+    
+    func setModel() {
+        
+        
+        guard let activeUser = UserData.shared.selectedUser else { return }
+        let profileNameText = activeUser.name + " " +  activeUser.secondName
+        let ageText = "\(activeUser.age) y.o."
+        profileView.profileImageView.image = UIImage(data: activeUser.profileImage)
+        profileView.profileNameLabel.text = profileNameText
+        profileView.profileYearLabel.text = ageText
+        
+        
+        
     }
 }
 

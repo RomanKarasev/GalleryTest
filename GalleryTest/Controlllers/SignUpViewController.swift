@@ -80,6 +80,49 @@ private extension SignUpViewController {
         signUpView.emailTextField.resignFirstResponder()
         signUpView.passwordTextField.resignFirstResponder()
     }
+    
+    //MARK: SaveData
+    
+    func signUPAndsaveData() {
+        let nameString = signUpView.nameTextField.text ?? ""
+        let secondNameString = signUpView.secondNameTextField.text ?? ""
+        let numberString = signUpView.numberTextField.text ?? ""
+        let emailString = signUpView.emailTextField.text ?? ""
+        let passwordString = signUpView.passwordTextField.text ?? ""
+        let ageString = signUpView.ageLabel.text ?? ""
+        let dateString = signUpView.dateLabel.text ?? ""
+        let profilePhotoData = Resources.defaultProfileImage?.pngData()
+        
+        
+        
+        guard  let profileImageData = signUpView.profileImageView.image?.pngData() else { return }
+        
+        guard let age = Int(ageString) else { return }
+        
+        if nameString.isValid(validTypes: nameValidType)
+            && secondNameString.isValid(validTypes: nameValidType)
+            && numberString.count == 18
+            && emailString.isValid(validTypes: emailValidType)
+            && passwordString.isValid(validTypes: passwordValidType)
+            && age >= 18 {
+            
+            UserData.shared.saveData(name: nameString,
+                                     secondName: secondNameString,
+                                     date: dateString,
+                                     age: ageString,
+                                     number: numberString,
+                                     email: emailString,
+                                     password: passwordString,
+                                     profileImage: profileImageData,
+                                     profilePhoto: profilePhotoData
+            )
+            signUpView.hiLabel.text = "SignUp Complete click on SingIN"
+            signUpView.hiLabel.textColor = .green
+        } else {
+            signUpView.hiLabel.text = "Error"
+            signUpView.hiLabel.textColor = .red
+        }
+    }
 }
 
 // MARK: - @objc extentions
@@ -87,7 +130,7 @@ private extension SignUpViewController {
 @objc extension SignUpViewController {
     
     func imageButtonTapped() {
-        print("imageButtonTapped")
+        chooseImage()
     }
     
     func dateButtonButtonTapped() {
@@ -98,8 +141,7 @@ private extension SignUpViewController {
     }
     
     func signUPButtonTapped() {
-        let signInViewController = SignInViewController()
-        self.present(signInViewController, animated: true)
+        signUPAndsaveData()
     }
     
     func signINButtonTapped() {
@@ -156,6 +198,25 @@ extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         addResignFirstResponder()
         return true
+    }
+}
+
+//MARK: - Work with image
+
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
+    func chooseImage() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = .photoLibrary
+            present(imagePicker, animated: true)
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        signUpView.profileImageView.image = info[.editedImage] as? UIImage
+        dismiss(animated: true)
     }
 }
 

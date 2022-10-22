@@ -159,6 +159,7 @@ class SignUpView: UIView {
         setConstraints()
         hideVerificationLabel()
         backgroundColor = .systemBackground
+        numberTextField.keyboardType = .phonePad
     }
     
     required init?(coder: NSCoder) {

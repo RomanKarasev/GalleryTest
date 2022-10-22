@@ -32,6 +32,8 @@
 		7448FB072902EDC6006564A5 /* UIString + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FB062902EDC6006564A5 /* UIString + Ext.swift */; };
 		7448FB0A290302B5006564A5 /* SetTextFieldsSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FB09290302B5006564A5 /* SetTextFieldsSignUpVC.swift */; };
 		7448FB0C2903051D006564A5 /* Alert + DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7448FB0B2903051D006564A5 /* Alert + DatePicker.swift */; };
+		74E994E02903238600ABF038 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E994DF2903238600ABF038 /* UserDefaultsManager.swift */; };
+		74E994E32903248300ABF038 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E994E22903248300ABF038 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		7448FB062902EDC6006564A5 /* UIString + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString + Ext.swift"; sourceTree = "<group>"; };
 		7448FB09290302B5006564A5 /* SetTextFieldsSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTextFieldsSignUpVC.swift; sourceTree = "<group>"; };
 		7448FB0B2903051D006564A5 /* Alert + DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert + DatePicker.swift"; sourceTree = "<group>"; };
+		74E994DF2903238600ABF038 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		74E994E22903248300ABF038 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 		7448FAC82901F324006564A5 /* GalleryTest */ = {
 			isa = PBXGroup;
 			children = (
+				74E994E12903246F00ABF038 /* Model */,
+				74E994DE2903236B00ABF038 /* Services */,
 				7448FAE32901F85C006564A5 /* Helpers */,
 				7448FAE02901F3B6006564A5 /* Views */,
 				7448FADE2901F3A0006564A5 /* Application */,
@@ -188,6 +194,22 @@
 			path = ExtentionForSignUpVC;
 			sourceTree = "<group>";
 		};
+		74E994DE2903236B00ABF038 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				74E994DF2903238600ABF038 /* UserDefaultsManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		74E994E12903246F00ABF038 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74E994E22903248300ABF038 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -266,12 +288,14 @@
 				7448FAF429022FFC006564A5 /* MainTabBarController.swift in Sources */,
 				7448FAF829023220006564A5 /* ProfileViewController.swift in Sources */,
 				7448FACA2901F324006564A5 /* AppDelegate.swift in Sources */,
+				74E994E32903248300ABF038 /* UserModel.swift in Sources */,
 				7448FAEA29020198006564A5 /* UIColor + Ext.swift in Sources */,
 				7448FAFA290272DB006564A5 /* AddPhotoView.swift in Sources */,
 				7448FB0129028791006564A5 /* DetailViewController.swift in Sources */,
 				7448FAFC29027737006564A5 /* ProfileView.swift in Sources */,
 				7448FAE22901F7DF006564A5 /* SignUpView.swift in Sources */,
 				7448FAE62901F87D006564A5 /* UILabel + Ext.swift in Sources */,
+				74E994E02903238600ABF038 /* UserDefaultsManager.swift in Sources */,
 				7448FB0529028C95006564A5 /* Resources.swift in Sources */,
 				7448FAEC29020A16006564A5 /* UIStackView + Ext.swift in Sources */,
 				7448FAE82901F92B006564A5 /* UIFont + Ext.swift in Sources */,

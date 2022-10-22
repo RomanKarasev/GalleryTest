@@ -39,7 +39,16 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     // MARK: Methods
     
     func configureCell(index: IndexPath) {
+        
+        guard let activeUserWithFoto = UserData.shared.selectedUserWithPhoto else { return }
+        guard let imageData = activeUserWithFoto.profilePhoto else { return }
+        
+        let imageFromData = UIImage(data: imageData)
+        
+        
         if index.row == 0 {
+            banerImageView.image = imageFromData
+        } else if index.row == 1 {
             banerImageView.image = Resources.defaultProfileImage
         }
     }
