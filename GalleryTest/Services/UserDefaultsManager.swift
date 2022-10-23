@@ -7,6 +7,8 @@
 
 import Foundation
 
+//MARK: - UserData
+
 class UserData {
     
     static let shared = UserData()
@@ -19,6 +21,9 @@ class UserData {
     let defaults = UserDefaults.standard
     let userKey = Keys.users.rawValue
     let selectedUserKey = Keys.selectedUser.rawValue
+    
+    
+    //MARK: users
     
     var users: [User] {
         get {
@@ -34,21 +39,6 @@ class UserData {
                 defaults.set(data, forKey: userKey)
             }
         }
-    }
-    
-    func saveData(name: String, secondName: String, date: String, age: String, number: String, email: String, password: String, profileImage: Data, profilePhoto: Data?) {
-        
-        let user = User(name: name,
-                        secondName: secondName,
-                        date: date,
-                        age: age,
-                        number: number,
-                        email: email,
-                        password: password,
-                        profileImage: profileImage,
-                        profilePhoto: profilePhoto
-        )
-        users.insert(user, at: 0)
     }
     
     var selectedUser: User? {
@@ -67,10 +57,6 @@ class UserData {
         }
     }
     
-    func saveActiveUser(user: User) {
-        selectedUser = user
-    }
-    
     var selectedUserWithPhoto: User? {
         get {
             if let data = defaults.value(forKey: selectedUserKey) as? Data {
@@ -87,11 +73,36 @@ class UserData {
         }
     }
     
+    
+    //MARK: saveData
+    
+    func saveData(name: String, secondName: String, date: String, dateNow: String,  age: String, number: String, email: String, password: String, profileImage: Data, profilePhoto: Data) {
+        
+        let user = User(name: name,
+                        secondName: secondName,
+                        date: date,
+                        age: age,
+                        dateNow: "",
+                        number: number,
+                        email: email,
+                        password: password,
+                        profileImage: profileImage,
+                        profilePhoto: profilePhoto
+        )
+        users.insert(user, at: 0)
+    }
+    
+    func saveActiveUser(user: User) {
+        selectedUser = user
+    }
+    
+    func saveDateToUser(user: User, dateNow: String)  {
+        selectedUserWithPhoto = user
+        selectedUser?.dateNow = dateNow
+    }
+    
     func savePhotoToUser(user: User, profilePhoto: Data)  {
         selectedUserWithPhoto = user
         selectedUser?.profilePhoto = profilePhoto
     }
-    
-    
-    
 }

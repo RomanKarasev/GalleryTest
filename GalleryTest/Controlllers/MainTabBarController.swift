@@ -17,6 +17,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
+        setView()
     }
 }
 // MARK: - Private Methods
@@ -33,7 +34,11 @@ extension MainTabBarController {
             addPhotoViewController,
             profileViewController
         ]
-        
+    }
+    
+    //MARK: setView
+    
+    private func setView() {
         tabBar.tintColor = .mainAccentColor
         tabBar.unselectedItemTintColor = .gray
         tabBar.backgroundColor = .systemBackground

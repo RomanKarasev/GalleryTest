@@ -85,7 +85,6 @@ extension AddPhotoView {
             ]
         )
         
-        
         addSubview(addPhotoButton)
         NSLayoutConstraint.activate(
             [addPhotoButton.topAnchor.constraint(equalTo: imageView.bottomAnchor,

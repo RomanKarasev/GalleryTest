@@ -8,6 +8,8 @@
 import UIKit
 
 extension UIColor {
+    //MARK: init with HEX
+    
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt64()
@@ -26,25 +28,14 @@ extension UIColor {
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
     
+    
+    // MARK: Properties
+    
     static let mainAccentColor = UIColor(hexString: "#7165E3")
     static let mainBorderColor = UIColor(hexString: "#2C2948")
     static let mainBackgroundColorForElement = UIColor(hexString: "#E3E0F9")
     static let notMainTextColor = UIColor(hexString: "#1C1939")
     static let colorForTitleDateButton =  UIColor(hexString: "#B8B6CB")
-    
-    
-    
-    
-    static let segmentedBackgroundColor = UIColor.systemGroupedBackground
-    static let tabBarBackgroundColor = UIColor.systemGroupedBackground
-    
-    static let mainColor = UIColor.systemBlue
-    static let accentColor = UIColor.systemOrange
-    static let clearColor = UIColor.clear
-    static let shadowColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 0.5)
-    
-    static let mainTextColor = UIColor.label
-    static let titleForButtonsWithBackground = UIColor.white
 }
 
 

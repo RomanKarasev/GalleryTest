@@ -72,10 +72,16 @@ class SignInView: UIView {
         super.init(frame: frame)
         setConstraints()
         backgroundColor = .systemBackground
+        setTextFields()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setTextFields() {
+        emailTextField.keyboardType = .emailAddress
+        passwordTextField.isSecureTextEntry = true
     }
 }
 
@@ -153,5 +159,3 @@ extension SignInView {
         )
     }
 }
-
-

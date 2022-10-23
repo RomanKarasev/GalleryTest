@@ -39,6 +39,7 @@ class ProfileView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1
         layout.scrollDirection = .vertical
+        layout.itemSize = Resources.itemSize
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(ProfileCollectionViewCell.self,
                                 forCellWithReuseIdentifier: ProfileCollectionViewCell.identifier)
@@ -47,13 +48,13 @@ class ProfileView: UIView {
     }()
     
     //MARK: Label
-   
-    let profileNameLabel = UILabel(text: "Roman",
+    
+    let profileNameLabel = UILabel(text: Resources.String.emptyLabelText,
                                    font: .appleSDGothicNeoSemiBold25(),
                                    alignment: .left,
                                    textColor: .label)
     
-    let profileYearLabel = UILabel(text: "31 year old",
+    let profileYearLabel = UILabel(text: Resources.String.emptyLabelText,
                                    font: .appleSDGothicNeo15(),
                                    alignment: .left,
                                    textColor: .label)
@@ -124,6 +125,3 @@ extension ProfileView {
         )
     }
 }
-
-
-

@@ -10,7 +10,7 @@ import UIKit
 //MARK: - DetailViewController
 
 class DetailViewController: UIViewController {
-
+    
     // MARK: Properties
     
     let detailView = DetailView()
@@ -28,14 +28,15 @@ class DetailViewController: UIViewController {
     }
     
     func setModel() {
-        guard let activeUser = UserData.shared.selectedUser else { return }
+        guard let activeUser = UserData.shared.selectedUserWithPhoto else { return }
         
         detailView.profileImageView.image = UIImage(data: activeUser.profileImage)
         detailView.nameLabel.text = activeUser.name
+        detailView.dateLabel.text = activeUser.dateNow
         detailView.secondNameLabel.text = activeUser.secondName
+        
+        guard let imageData = activeUser.profilePhoto else { return }
+        guard let image = UIImage(data: imageData) else { return }
+        detailView.chosenImageView.image = image
     }
 }
-
-
-
-

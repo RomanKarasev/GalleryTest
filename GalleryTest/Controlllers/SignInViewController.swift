@@ -22,7 +22,6 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         setDelegates()
         addActionsForButtons()
-//        registerKeyboardNotification()
     }
     
     override func loadView() {
@@ -64,6 +63,8 @@ private extension SignInViewController {
         return nil
     }
     
+    //MARK: SignIn
+    
     func signIn() {
         
         let emailString = signInView.emailTextField.text ?? ""
@@ -71,11 +72,13 @@ private extension SignInViewController {
         let user = chechMailInUserData(email: emailString)
         
         if user == nil {
-            signInView.hiLabel.text = "User Not Found"
+            signInView.hiLabel.text = Resources.String.WrongMessages.userNotFound
             signInView.hiLabel.textColor = .red
         } else if user?.password == passwordString {
-            signInView.hiLabel.text = "Sign in to continue"
+            signInView.hiLabel.text = Resources.String.signInToContinue
             signInView.hiLabel.textColor = .label
+            
+            
             let vc = MainTabBarController()
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
@@ -83,7 +86,7 @@ private extension SignInViewController {
             guard let activeUser = user else { return }
             UserData.shared.saveActiveUser(user: activeUser )
         } else {
-            signInView.hiLabel.text = "Password not valid"
+            signInView.hiLabel.text = Resources.String.WrongMessages.wrongPassword
             signInView.hiLabel.textColor = .red
         }
     }
@@ -110,7 +113,7 @@ extension SignInViewController: UITextFieldDelegate {
         shouldChangeCharactersInRange(textField: textField, range: range, string: string)
         return false
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         signInView.emailTextField.resignFirstResponder()
         signInView.passwordTextField.resignFirstResponder()
@@ -160,7 +163,7 @@ private extension SignInViewController {
         
         if result.isValid(validTypes: validTypes) {
             textField.layer.borderColor = UIColor.green.cgColor
-            signInView.hiLabel.text = "Sign in to continue"
+            signInView.hiLabel.text = Resources.String.signInToContinue
             signInView.hiLabel.textColor = .label
         } else {
             textField.layer.borderColor = UIColor.red.cgColor

@@ -22,9 +22,6 @@ class ProfileViewController: UIViewController {
         setDelegates()
         title = Resources.String.profileVCTitle
         setModel()
-        profileView.profileCollectionView.reloadData()
-        
-        
     }
     
     override func loadView() {
@@ -47,24 +44,28 @@ private extension ProfileViewController {
         profileView.profileCollectionView.dataSource = self
     }
     
-    func didSelectProfilePhoto() {
+    func didSelectProfilePhoto(index: IndexPath) {
+        
+        let imageNew = Resources.imagesArray[index.row]
+        
+        guard let imageToData = imageNew.pngData() else { return }
+        guard let activeUser = UserData.shared.selectedUser else { return }
+        
+        UserData.shared.savePhotoToUser(user: activeUser, profilePhoto: imageToData)
+        print(activeUser)
+        
         let vc = DetailViewController()
         self.present(vc, animated: true)
     }
     
     func setModel() {
         
-        
         guard let activeUser = UserData.shared.selectedUser else { return }
         let profileNameText = activeUser.name + " " +  activeUser.secondName
         let ageText = "\(activeUser.age) y.o."
         profileView.profileImageView.image = UIImage(data: activeUser.profileImage)
         profileView.profileNameLabel.text = profileNameText
-        profileView.profileYearLabel.text = ageText
-        
-        
-        
-    }
+        profileView.profileYearLabel.text = ageText    }
 }
 
 // MARK: - @objc extentions
@@ -77,7 +78,7 @@ private extension ProfileViewController {
 
 extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        9
+        return Resources.imagesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -93,14 +94,7 @@ extension ProfileViewController: UICollectionViewDataSource {
 extension ProfileViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        didSelectProfilePhoto()
-    }
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-
-extension ProfileViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 140, height: 140)
+        
+        didSelectProfilePhoto(index: indexPath)
     }
 }

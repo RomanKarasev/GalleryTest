@@ -51,16 +51,16 @@ class DetailView: UIView {
                           alignment: .center,
                           textColor: .secondaryLabel)
     
-    let nameLabel = UILabel(text: "Roman",
+    let nameLabel = UILabel(text: Resources.String.emptyLabelText,
                             font: .appleSDGothicNeo20(),
                             alignment: .center,
                             textColor: .label)
-    let secondNameLabel = UILabel(text: "Karasev",
+    let secondNameLabel = UILabel(text: Resources.String.emptyLabelText,
                                   font: .appleSDGothicNeo20(),
                                   alignment: .center,
                                   textColor: .label)
     
-    let dateLabel = UILabel(text: "21.01.2022 11:01",
+    let dateLabel = UILabel(text: Resources.String.emptyLabelText,
                             font: .appleSDGothicNeo15(),
                             alignment: .center,
                             textColor: .label)

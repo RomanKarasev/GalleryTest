@@ -21,6 +21,8 @@ class ProfileCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -40,16 +42,11 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     
     func configureCell(index: IndexPath) {
         
-        guard let activeUserWithFoto = UserData.shared.selectedUserWithPhoto else { return }
-        guard let imageData = activeUserWithFoto.profilePhoto else { return }
-        
-        let imageFromData = UIImage(data: imageData)
-        
-        
-        if index.row == 0 {
-            banerImageView.image = imageFromData
-        } else if index.row == 1 {
-            banerImageView.image = Resources.defaultProfileImage
+        let array = Resources.imagesArray
+        if array.isEmpty {
+            banerImageView.backgroundColor = .lightGray
+        } else {
+            banerImageView.image = array[index.row]
         }
     }
     

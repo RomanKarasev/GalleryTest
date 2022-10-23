@@ -84,42 +84,40 @@ private extension SignUpViewController {
     //MARK: SaveData
     
     func signUPAndsaveData() {
-        let nameString = signUpView.nameTextField.text ?? ""
-        let secondNameString = signUpView.secondNameTextField.text ?? ""
-        let numberString = signUpView.numberTextField.text ?? ""
-        let emailString = signUpView.emailTextField.text ?? ""
-        let passwordString = signUpView.passwordTextField.text ?? ""
-        let ageString = signUpView.ageLabel.text ?? ""
-        let dateString = signUpView.dateLabel.text ?? ""
-        let profilePhotoData = Resources.defaultProfileImage?.pngData()
-        
-        
-        
+        //данные после регистрации
+        let nameString = signUpView.nameTextField.text ?? Resources.String.emptyLabelText
+        let secondNameString = signUpView.secondNameTextField.text ?? Resources.String.emptyLabelText
+        let numberString = signUpView.numberTextField.text ?? Resources.String.emptyLabelText
+        let emailString = signUpView.emailTextField.text ?? Resources.String.emptyLabelText
+        let passwordString = signUpView.passwordTextField.text ?? Resources.String.emptyLabelText
+        let ageString = signUpView.ageLabel.text ?? Resources.String.emptyLabelText
+        let dateString = signUpView.dateLabel.text ?? Resources.String.emptyLabelText
+        guard let age = Int(ageString) else { return }
         guard  let profileImageData = signUpView.profileImageView.image?.pngData() else { return }
         
-        guard let age = Int(ageString) else { return }
-        
+        //Проверяю, если все данные соответствуют условиям
         if nameString.isValid(validTypes: nameValidType)
             && secondNameString.isValid(validTypes: nameValidType)
             && numberString.count == 18
             && emailString.isValid(validTypes: emailValidType)
             && passwordString.isValid(validTypes: passwordValidType)
             && age >= 18 {
-            
+            //Сохраняю все в Базу
             UserData.shared.saveData(name: nameString,
                                      secondName: secondNameString,
                                      date: dateString,
+                                     dateNow: Resources.String.emptyLabelText,
                                      age: ageString,
                                      number: numberString,
                                      email: emailString,
                                      password: passwordString,
                                      profileImage: profileImageData,
-                                     profilePhoto: profilePhotoData
+                                     profilePhoto: Data()
             )
-            signUpView.hiLabel.text = "SignUp Complete click on SingIN"
+            signUpView.hiLabel.text = Resources.String.signInCompleted
             signUpView.hiLabel.textColor = .green
         } else {
-            signUpView.hiLabel.text = "Error"
+            signUpView.hiLabel.text = Resources.String.WrongMessages.error
             signUpView.hiLabel.textColor = .red
         }
     }

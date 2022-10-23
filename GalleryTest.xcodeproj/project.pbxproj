@@ -98,12 +98,12 @@
 		7448FAC82901F324006564A5 /* GalleryTest */ = {
 			isa = PBXGroup;
 			children = (
+				7448FADE2901F3A0006564A5 /* Application */,
 				74E994E12903246F00ABF038 /* Model */,
+				7448FAE02901F3B6006564A5 /* Views */,
+				7448FADF2901F3AB006564A5 /* Controlllers */,
 				74E994DE2903236B00ABF038 /* Services */,
 				7448FAE32901F85C006564A5 /* Helpers */,
-				7448FAE02901F3B6006564A5 /* Views */,
-				7448FADE2901F3A0006564A5 /* Application */,
-				7448FADF2901F3AB006564A5 /* Controlllers */,
 				7448FADD2901F36E006564A5 /* Resources */,
 			);
 			path = GalleryTest;
@@ -226,6 +226,8 @@
 			dependencies = (
 			);
 			name = GalleryTest;
+			packageProductDependencies = (
+			);
 			productName = GalleryTest;
 			productReference = 7448FAC62901F324006564A5 /* GalleryTest.app */;
 			productType = "com.apple.product-type.application";
@@ -254,6 +256,8 @@
 				Base,
 			);
 			mainGroup = 7448FABD2901F323006564A5;
+			packageReferences = (
+			);
 			productRefGroup = 7448FAC72901F324006564A5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

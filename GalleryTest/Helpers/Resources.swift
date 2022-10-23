@@ -9,12 +9,17 @@ import UIKit
 
 enum Resources {
     
-    //MARK: Images
     
+    //MARK: Images
+    static var imagesArray = [UIImage]()
     static var defaultProfileImage =  UIImage(named: "profileImage")
     static var addTabBarImage = UIImage(systemName: "plus")
     static var profileTabBarImage = UIImage(systemName: "person.fill")
     
+    //MARK: Size
+    
+    static var itemSize: CGSize = CGSize(width: UIScreen.main.bounds.size.width / 3 - 2, height: UIScreen.main.bounds.size.width / 3 - 2)
+
     
     //MARK: Strings
     
@@ -46,21 +51,29 @@ enum Resources {
         static var titleForSigUPSmallButton = "SignUP"
         static var titleForDateButton = " 01.01.01"
         static var titleForAddPhotoButton = "Choose Photo"
-        
+        static var signUpDateLabel = "07.01.1991"
         static var mainAuthLabel = "Wellcome!"
         static var mainSignInLabel = "Wellcome Back!"
         
         static var hiAuthLabel = "Здесь можно зарегистрироваться и выбрать фото профиля"
         static var hiSignInLabel = "Sign in to continue"
         static var hiAddPhotoLabel = "Add new photo to you Profile"
-        static var hiProfileLabel = ""
         static var hiDetailLabel = "Photo Info"
         
-        enum wrongMessages {
+        
+        static var signInCompleted = "SignUp Complete click on SingIN"
+        static var signInToContinue = "Sign in to continue"
+        
+        
+        
+        enum WrongMessages {
             static var name = "Only a-z or A-z, minimun 1 character"
             static var email = "Email don't valid"
             static var password = "Password is not valid"
             static var number = "Enter 11 number's"
+            static var error = "Error"
+            static var userNotFound = "User Not Found"
+            static var wrongPassword = "Wrong Password"
         }
     }
 }

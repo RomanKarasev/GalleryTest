@@ -16,28 +16,28 @@ extension SignUpViewController {
             case signUpView.nameTextField: setTextFields(textField: signUpView.nameTextField,
                                                          label: signUpView.nameVerificationLabel,
                                                          validTypes: nameValidType,
-                                                         wrongMessage: Resources.String.wrongMessages.name,
+                                                         wrongMessage: Resources.String.WrongMessages.name,
                                                          range: range,
                                                          string: string)
                 
             case signUpView.secondNameTextField: setTextFields(textField: signUpView.secondNameTextField,
                                                                label: signUpView.secondNameVerificationLabel,
                                                                validTypes: nameValidType,
-                                                               wrongMessage: Resources.String.wrongMessages.name,
+                                                               wrongMessage: Resources.String.WrongMessages.name,
                                                                range: range,
                                                                string: string)
                 
             case signUpView.emailTextField: setTextFields(textField: signUpView.emailTextField,
                                                           label: signUpView.emailVerificationLabel,
                                                           validTypes: emailValidType,
-                                                          wrongMessage: Resources.String.wrongMessages.email,
+                                                          wrongMessage: Resources.String.WrongMessages.email,
                                                           range: range,
                                                           string: string)
                 
             case signUpView.passwordTextField: setTextFields(textField: signUpView.passwordTextField,
                                                              label: signUpView.passwordVerificationLabel,
                                                              validTypes: passwordValidType,
-                                                             wrongMessage: Resources.String.wrongMessages.password,
+                                                             wrongMessage: Resources.String.WrongMessages.password,
                                                              range: range,
                                                              string: string)
                 
@@ -109,7 +109,7 @@ private extension SignUpViewController {
         } else {
             textField.layer.borderColor = UIColor.red.cgColor
             label.isHidden = false
-            label.text = Resources.String.wrongMessages.number
+            label.text = Resources.String.WrongMessages.number
         }
         
         return result

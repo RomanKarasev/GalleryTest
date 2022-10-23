@@ -86,7 +86,7 @@ class SignUpView: UIView {
                              textColor: .notMainTextColor)
     
     let dateLabel: UILabel = {
-        let label = UILabel(text: "07.01.1991",
+        let label = UILabel(text: Resources.String.signUpDateLabel,
                             font: .systemFont(ofSize: 17),
                             alignment: .left,
                             textColor: .notMainTextColor)
@@ -159,12 +159,15 @@ class SignUpView: UIView {
         setConstraints()
         hideVerificationLabel()
         backgroundColor = .systemBackground
-        numberTextField.keyboardType = .phonePad
+        setTexfield()
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: Methods
     
     func hideVerificationLabel() {
         nameVerificationLabel.isHidden = true
@@ -173,6 +176,12 @@ class SignUpView: UIView {
         numberVerificationLabel.isHidden = true
         emailVerificationLabel.isHidden = true
         passwordVerificationLabel.isHidden = true
+    }
+    
+    private func setTexfield() {
+        numberTextField.keyboardType = .phonePad
+        emailTextField.keyboardType = .emailAddress
+        passwordTextField.isSecureTextEntry = true
     }
 }
 
@@ -247,7 +256,7 @@ extension SignUpView {
              imageButton.widthAnchor.constraint(equalToConstant: 100)
             ]
         )
-
+        
         imageButton.addSubview(profileImageView)
         NSLayoutConstraint.activate(
             [profileImageView.topAnchor.constraint(equalTo: imageButton.topAnchor),
@@ -256,7 +265,7 @@ extension SignUpView {
              profileImageView.bottomAnchor.constraint(equalTo: imageButton.bottomAnchor)
             ]
         )
-
+        
         loginBackgroundView.addSubview(mainStackView)
         NSLayoutConstraint.activate(
             [mainStackView.topAnchor.constraint(equalTo: imageButton.bottomAnchor, constant: 10),
@@ -265,7 +274,7 @@ extension SignUpView {
              mainStackView.bottomAnchor.constraint(equalTo: loginBackgroundView.bottomAnchor)
             ]
         )
-
+        
         dateButton.addSubview(dateLabel)
         NSLayoutConstraint.activate([dateLabel.topAnchor.constraint(equalTo: dateButton.topAnchor),
                                      dateLabel.leadingAnchor.constraint(equalTo: dateButton.leadingAnchor, constant: 7),
@@ -284,7 +293,7 @@ extension SignUpView {
              signUPButton.heightAnchor.constraint(equalToConstant: 60)
             ]
         )
-
+        
         addSubview(iHaveLabel)
         NSLayoutConstraint.activate(
             [iHaveLabel.centerXAnchor.constraint(equalTo: signUPButton.centerXAnchor,
@@ -293,7 +302,7 @@ extension SignUpView {
                                              constant: 10)
             ]
         )
-
+        
         addSubview(signINButton)
         NSLayoutConstraint.activate(
             [signINButton.leadingAnchor.constraint(equalTo: iHaveLabel.trailingAnchor),
